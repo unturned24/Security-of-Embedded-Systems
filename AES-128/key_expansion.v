@@ -1,10 +1,7 @@
 `timescale 1ns / 1ps
 
-module key_expansion{
-    key,
-    count,
-    key_out
-}
+module key_expansion(key, count, key_out)
+    
   //declaration of i/ps and o/p
   input [127:0] key;
   input [3:0] RCon;
@@ -15,9 +12,10 @@ module key_expansion{
   assign w1 = key[95:64];
   assign w2 = key[63:32];
   assign w3 = key[31:0];
+    
   //calculating g(w3)
   assign w_3 = {w3[23:16], w3[15:8], w3[7:0], w3[31:24]};
-  assign w3 = sub(w_3);
+  assign w3 = sub_byte(w_3);
   assign temp = rcon;
   assign key_out[127:96] = w0^w3^temp;
   assign key_out[95:64] = w1^w0^w3^temp;

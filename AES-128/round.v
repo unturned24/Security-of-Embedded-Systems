@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module round(clk,rc,data,keyin,keyout,rndout);
+module round(clk,rc,data,key_in,key_out,rndout);
 input clk;
 input [3:0]rc;
 input [127:0]data;

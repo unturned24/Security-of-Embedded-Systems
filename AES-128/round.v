@@ -9,7 +9,7 @@ output [127:0]key_out;
 output [127:0]rndout;
 
 wire [127:0] sb,sr,mc;
-//encrpts data for a given round taking round_count as input
+//encrypts data for a given round taking round_count as input
 KeyGeneration t0(rc,key_in,key_out);
 subbytes t1(data,sb);
 shiftrow t2(sb,sr);

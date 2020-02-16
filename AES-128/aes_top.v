@@ -1,6 +1,6 @@
   
 `timescale 1ns / 1ps
-`include aes_encrypt.v
+`include "aes_encrypt.v"
 
 module aes_top(clk, data_out);
     input clk;

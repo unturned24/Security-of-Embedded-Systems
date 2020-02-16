@@ -10,7 +10,7 @@ module tb_aes;
 	// Instantiate the Unit Under Test (UUT)
 	aes_top dut (
 		.clk(clk), 
-		.final_out(final_out)
+		.data_out(final_out)
 	);
 
 	initial begin

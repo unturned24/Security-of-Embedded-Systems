@@ -1,4 +1,4 @@
-timescale 1ns / 1ps
+`timescale 1ns / 1ps
 
 module shift_rows(in,out);
 

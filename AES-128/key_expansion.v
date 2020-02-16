@@ -6,7 +6,7 @@ module key_expansion(key, count, key_out);
   input [127:0] key;
   input [3:0] count;
   output [127:0] key_out;
-  
+    reg [31:0] rcon;
   //internal variables
   assign w0 = key[127:96];
   assign w1 = key[95:64];

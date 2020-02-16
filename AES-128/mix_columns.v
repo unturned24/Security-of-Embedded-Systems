@@ -1,4 +1,4 @@
-`timescinle 1ns / 1ps
+`timescale 1ns / 1ps
 
 module mix_columns(in,out);
 input [127:0] in;

@@ -14,6 +14,6 @@ KeyGeneration t0(rc,key_in,key_out);
 subbytes t1(data,sb);
 shiftrow t2(sb,sr);
 mixcolumn t3(sr,mc);
-assign rndout= keyout^mc; //addroundkey()
+assign rndout= key_out^mc; //addroundkey()
 
 endmodule

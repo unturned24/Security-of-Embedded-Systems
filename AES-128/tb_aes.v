@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include aes_top.v
 
 module tb_aes;
 	// Inputs

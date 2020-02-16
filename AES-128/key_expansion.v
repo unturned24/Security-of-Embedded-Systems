@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module key_expansion(key, count, key_out)
+module key_expansion(key, count, key_out);
     
   //declaration of i/ps and o/p
   input [127:0] key;

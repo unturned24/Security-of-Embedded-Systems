@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module AES_TB;
+module tb_aes;
 	// Inputs
 	reg clk;
 	// Outputs

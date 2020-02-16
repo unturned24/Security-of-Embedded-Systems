@@ -6,20 +6,14 @@ module tb_aes;
 	reg clk;
 	// Outputs
 	wire [7:0] final_out;
-
+	initial begin 
+    		forever begin
+    		clk = 0;
+    		#1 clk = ~clk;
+		 end end
 	// Instantiate the Unit Under Test (UUT)
-	aes_top dut (
-		.clk(clk), 
-		.data_out(final_out)
-	);
+	aes_top dut ( .clk(clk), .data_out(final_out));
 	
-	initial begin
-		// Initialize Inputs
-		clk = 0;
-		// Wait 100 ns for global reset to finish
-		always clk <= #0.1 ~clk;
-		#100;
-		// Add stimulus here
-	end
+	
       
 endmodule

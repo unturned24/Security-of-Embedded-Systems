@@ -17,8 +17,8 @@ module tb_aes;
 		// Initialize Inputs
 		clk = 0;
 		// Wait 100 ns for global reset to finish
-		always clk = #0.1 ~clk;
-		#1000;
+		always clk <= #0.1 ~clk;
+		#100;
 		// Add stimulus here
 	end
       

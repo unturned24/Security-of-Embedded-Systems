@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
-
+`include "round.v"
+`include "last_round.v"
 
 module aes_encrypt(clk,data_in,key,data_out);
 

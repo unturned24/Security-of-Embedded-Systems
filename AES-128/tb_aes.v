@@ -12,12 +12,13 @@ module tb_aes;
 		.clk(clk), 
 		.data_out(final_out)
 	);
-
+	
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		// Wait 100 ns for global reset to finish
-		#100;
+		always clk = #0.1 ~clk;
+		#1000;
 		// Add stimulus here
 	end
       

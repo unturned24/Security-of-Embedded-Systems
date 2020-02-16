@@ -1,6 +1,11 @@
   
 `timescale 1ns / 1ps
 `include "aes_encrypt.v"
+`include "round.v"
+`include "last_round.v"
+`include "sub_byte.v"
+`include "shift_rows.v"
+`include "mix_columns.v"
 
 module aes_top(clk, data_out);
     input clk;

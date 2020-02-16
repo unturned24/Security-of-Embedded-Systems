@@ -1,4 +1,8 @@
 `timescale 1ns / 1ps
+`include "key_expansion.v"
+`include "sub_byte.v"
+`include "shift_rows.v"
+`include "mix_columns.v"
 
 module round(clk,rc,data,key_in,key_out,rndout);
 input clk;

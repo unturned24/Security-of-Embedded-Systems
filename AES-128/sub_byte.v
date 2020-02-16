@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-
+`include "sub_lookup.v"
 module sub_byte(in,sb);
 
 input [127:0] in;

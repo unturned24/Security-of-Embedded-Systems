@@ -12,6 +12,5 @@ key_expansion t0(rc,key_in,key_out);
 sub_byte t1(data,sb);
 shift_rows t2(sb,sr);
 mix_columns t3(sr,mc);
-
-assign rndout= key_out^mc; //addroundkey()
+assign rndout= key_out^mc;
 endmodule

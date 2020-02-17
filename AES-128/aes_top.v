@@ -51,7 +51,7 @@ module aes_top(
     
     
     wire [127:0]encrypted_text;     //output from final round
-    finalRound fr(.in(immed_text[127:0]),.key_last(key_10[127:0]),.data_out(encrypted_text[127:0]));
+    last_round fr(.in(immed_text[127:0]),.key_last(key_10[127:0]),.data_out(encrypted_text[127:0]));
     
     
    

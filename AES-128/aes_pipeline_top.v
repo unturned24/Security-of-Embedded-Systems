@@ -152,7 +152,7 @@ module aes_top(
         end
     end
 
-    first_round FR(.data_in(ir_in[127:0]),.key_in(ir_key[127:0]), .out(out[127:0]));
+    first_round FR(.data(ir_in[127:0]),.key_in(ir_key[127:0]), .out(out[127:0]));
     
     key_expansion k1(.key(ir_key[127:0]),.count(4'b0001),.key_out(key_1[127:0]));
     key_expansion k2(.key(k1_key[127:0]),.count(4'b0010),.key_out(key_2[127:0])); 

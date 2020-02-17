@@ -1,9 +1,8 @@
 `timescale 1ns / 1ps
 
-module key_expansion(clk, key, count, key_out);
+module key_expansion(key, count, key_out);
     
   //declaration of i/ps and o/p
-  input clk;
   input [127:0] key;
   input [3:0] count;
   output [127:0] key_out;

@@ -27,6 +27,10 @@ module aes_top(
     //round count to be sent to keyexpansion module 
     //reg [3:0]count;
     
+     reg [3:0]counter;           //depicts number of round
+    reg [127:0]immed_text;      //input to the round_box
+    reg [127:0]round_key_in;    //key input to the round_box
+    reg [127:0]final_round_in;  //text input for final round
     
     key_expansion k1(.key(key[127:0]),.count(4'b0001),.key_out(key_1[127:0]));
     key_expansion k2(.key(key_1[127:0]),.count(4'b0010),.key_out(key_2[127:0])); 
@@ -50,12 +54,9 @@ module aes_top(
     finalRound fr(.in(immed_text[127:0]),.key_last(key_10[127:0]),.data_out(encrypted_text[127:0]));
     
     
-    reg [3:0]counter;           //depicts number of round
-    reg [127:0]immed_text;      //input to the round_box
-    reg [127:0]round_key_in;    //key input to the round_box
-    reg [127:0]final_round_in;  //text input for final round
+   
     
-    always@(negedge clock)
+    always@(negedge clk)
     begin
         if(reset == 1'b0)
         begin

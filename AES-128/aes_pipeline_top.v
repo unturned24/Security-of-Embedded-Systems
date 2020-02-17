@@ -111,7 +111,7 @@ module aes_top(
     
     
     
-    always@(negedge clock)
+    always@(negedge clk)
     begin
         if(reset==1'b0)
         begin

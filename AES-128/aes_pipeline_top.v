@@ -12,7 +12,6 @@ module aes_top(
     
     
     wire [127:0]out;
-    first_round FR(.out(out[127:0]),.data_in(data_in[127:0]),.key(key[127:0]));
      
     
     wire [127:0]key_1;
@@ -37,8 +36,8 @@ module aes_top(
     wire [127:0] r9_out;
     
     //initial round
-    reg [127:0]data_in;
-    reg [127:0]key;
+    reg [127:0]ir_in;
+    reg [127:0]ir_key;
      
     //initial round -> R1
     reg [127:0]r1_in;
@@ -80,34 +79,13 @@ module aes_top(
     reg [127:0]fr_in;
     reg [127:0]k10_key;
     
-    
-    key_expansion k1(.key(key[127:0]),.count(4'b0001),.key_out(key_1[127:0]));
-    key_expansion k2(.key(k1_key[127:0]),.count(4'b0010),.key_out(key_2[127:0])); 
-    key_expansion k3(.key(k2_key[127:0]),.count(4'b0011),.key_out(key_3[127:0])); 
-    key_expansion k4(.key(k3_key[127:0]),.count(4'b0100),.key_out(key_4[127:0])); 
-    key_expansion k5(.key(k4_key[127:0]),.count(4'b0101),.key_out(key_5[127:0])); 
-    key_expansion k6(.key(k5_key[127:0]),.count(4'b0110),.key_out(key_6[127:0])); 
-    key_expansion k7(.key(k6_key[127:0]),.count(4'b0111),.key_out(key_7[127:0])); 
-    key_expansion k8(.key(k7_key[127:0]),.count(4'b1000),.key_out(key_8[127:0])); 
-    key_expansion k9(.key(k8_key[127:0]),.count(4'b1001),.key_out(key_9[127:0])); 
-    key_expansion k10(.key(k9_key[127:0]),.count(4'b1010),.key_out(key_10[127:0])); 
- 
-       
-    round r1(.data(r1_in[127:0]),.key_in(k1_key[127:0]), .out(r1_out[127:0]));
-    round r2(.data(r2_in[127:0]),.key_in(k2_key[127:0]), .out(r2_out[127:0]));
-    round r3(.data(r3_in[127:0]),.key_in(k3_key[127:0]), .out(r3_out[127:0]));
-    round r4(.data(r4_in[127:0]),.key_in(k4_key[127:0]), .out(r4_out[127:0]));
-    round r5(.data(r5_in[127:0]),.key_in(k5_key[127:0]), .out(r5_out[127:0]));
-    round r6(.data(r6_in[127:0]),.key_in(k6_key[127:0]), .out(r6_out[127:0]));
-    round r7(.data(r7_in[127:0]),.key_in(k7_key[127:0]), .out(r7_out[127:0]));
-    round r8(.data(r8_in[127:0]),.key_in(k8_key[127:0]), .out(r8_out[127:0]));
-    round r9(.data(r9_in[127:0]),.key_in(k9_key[127:0]), .out(r9_out[127:0]));
+
     
  
     
     wire [127:0]encrypted_text;     //output from final round
     
-    last_round lr(.in(fr_in[127:0]),.key_last(k10_key[127:0]),.data_out(encrypted_text[127:0]));
+   
     
     
     
@@ -115,8 +93,8 @@ module aes_top(
     begin
         if(reset==1'b0)
         begin
-            data_in <= 128'h0;
-            key<= 128'h0;
+            ir_in <= 128'h0;
+            ir_key<= 128'h0;
             r1_in <= 128'h0;
             k1_key<= 128'h0;
             r2_in <= 128'h0;
@@ -142,8 +120,8 @@ module aes_top(
         end
         else
         begin
-            data_in <=data_in;
-            key<=key;
+            ir_in <=data_in;
+            ir_key<=key;
             r1_in <=out;
             k1_key<=key_1;
             r2_in <=r1_out;
@@ -168,6 +146,33 @@ module aes_top(
             cryptokey <= encrypted_text;                                                                                                
         end
     end
+
+    first_round FR(.out(out[127:0]),.data_in(ir_in[127:0]),.key(ir_key[127:0]));
+    
+    key_expansion k1(.key(ir_key[127:0]),.count(4'b0001),.key_out(key_1[127:0]));
+    key_expansion k2(.key(k1_key[127:0]),.count(4'b0010),.key_out(key_2[127:0])); 
+    key_expansion k3(.key(k2_key[127:0]),.count(4'b0011),.key_out(key_3[127:0])); 
+    key_expansion k4(.key(k3_key[127:0]),.count(4'b0100),.key_out(key_4[127:0])); 
+    key_expansion k5(.key(k4_key[127:0]),.count(4'b0101),.key_out(key_5[127:0])); 
+    key_expansion k6(.key(k5_key[127:0]),.count(4'b0110),.key_out(key_6[127:0])); 
+    key_expansion k7(.key(k6_key[127:0]),.count(4'b0111),.key_out(key_7[127:0])); 
+    key_expansion k8(.key(k7_key[127:0]),.count(4'b1000),.key_out(key_8[127:0])); 
+    key_expansion k9(.key(k8_key[127:0]),.count(4'b1001),.key_out(key_9[127:0])); 
+    key_expansion k10(.key(k9_key[127:0]),.count(4'b1010),.key_out(key_10[127:0])); 
+ 
+       
+    round r1(.data(r1_in[127:0]),.key_in(k1_key[127:0]), .out(r1_out[127:0]));
+    round r2(.data(r2_in[127:0]),.key_in(k2_key[127:0]), .out(r2_out[127:0]));
+    round r3(.data(r3_in[127:0]),.key_in(k3_key[127:0]), .out(r3_out[127:0]));
+    round r4(.data(r4_in[127:0]),.key_in(k4_key[127:0]), .out(r4_out[127:0]));
+    round r5(.data(r5_in[127:0]),.key_in(k5_key[127:0]), .out(r5_out[127:0]));
+    round r6(.data(r6_in[127:0]),.key_in(k6_key[127:0]), .out(r6_out[127:0]));
+    round r7(.data(r7_in[127:0]),.key_in(k7_key[127:0]), .out(r7_out[127:0]));
+    round r8(.data(r8_in[127:0]),.key_in(k8_key[127:0]), .out(r8_out[127:0]));
+    round r9(.data(r9_in[127:0]),.key_in(k9_key[127:0]), .out(r9_out[127:0]));
+ last_round lr(.in(fr_in[127:0]),.key_last(k10_key[127:0]),.data_out(encrypted_text[127:0]));
+
+
 
       
 endmodule

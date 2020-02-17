@@ -1,9 +1,10 @@
 `timescale 1ns / 1ps
 `include "sub_lookup.v"
-module sub_byte(in,sb);
+module sub_byte(clk,in,sb);
 
 input [127:0] in;
 output [127:0] sb;
+input clk;
 
      sbox q0( .a(in[127:120]),.c(sb[127:120]) );
      sbox q1( .a(in[119:112]),.c(sb[119:112]) );

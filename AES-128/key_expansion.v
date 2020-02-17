@@ -19,7 +19,7 @@ module key_expansion(key, count, key_out);
     assign key_out[127:96] = w0^temp^rcon(count);
     assign key_out[95:64] = w1^w0^temp^rcon(count);
     assign key_out[63:32] = w2^w1^w0^temp^rcon(count);
-    assign key_out[95:64] = w3^w2^w1^w0^temp^rcon(count);
+    assign key_out[31:0] = w3^w2^w1^w0^temp^rcon(count);
   
     
   //To calculate round constant based on the round we're in 

@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
-module shift_rows(in,out);
+module shift_rows(clk,in,out);
 
 input [127:0] in;
 output [127:0] out;
-
+input clk;
 //assigning bytes according to shifts in the rows
 assign         out[127:120] = in[95:88];  
 assign         out[119:112] = in[55:48];

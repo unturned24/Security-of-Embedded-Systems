@@ -1,12 +1,13 @@
 `timescale 1ns / 1ps
 
-module key_expansion(key, count, key_out);
+module key_expansion(clk, key, count, key_out);
     
   //declaration of i/ps and o/p
+  input clk;
   input [127:0] key;
   input [3:0] count;
   output [127:0] key_out;
-    wire [31:0] w0,w1,w2,w3,w_3;
+   wire [31:0] w0,w1,w2,w3,w_3;
   //internal variables
   assign w0 = key[127:96];
   assign w1 = key[95:64];
@@ -21,6 +22,7 @@ module key_expansion(key, count, key_out);
     assign key_out[63:32] = w2^w1^w0^w3^rcon(count);
     assign key_out[95:64] = w3^w2^w1^w0^w3^rcon(count);
   
+    
   //To calculate round constant based on the round we're in 
        function [31:0]	rcon;
          input	[3:0]	count;

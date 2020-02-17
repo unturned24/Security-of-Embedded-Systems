@@ -12,7 +12,7 @@ module aes_top(
     
     
     wire [127:0]out;
-    first_round FR(.out(out[127:0]),.data_in(ir_in[127:0]),.key(ir_key[127:0]));
+    first_round FR(.out(out[127:0]),.data_in(data_in[127:0]),.key(key[127:0]));
      
     
     wire [127:0]key_1;
@@ -37,8 +37,8 @@ module aes_top(
     wire [127:0] r9_out;
     
     //initial round
-    reg [127:0]ir_in;
-    reg [127:0]ir_key;
+    reg [127:0]data_in;
+    reg [127:0]key;
      
     //initial round -> R1
     reg [127:0]r1_in;
@@ -81,7 +81,7 @@ module aes_top(
     reg [127:0]k10_key;
     
     
-    key_expansion k1(.key(ir_key[127:0]),.count(4'b0001),.key_out(key_1[127:0]));
+    key_expansion k1(.key(key[127:0]),.count(4'b0001),.key_out(key_1[127:0]));
     key_expansion k2(.key(k1_key[127:0]),.count(4'b0010),.key_out(key_2[127:0])); 
     key_expansion k3(.key(k2_key[127:0]),.count(4'b0011),.key_out(key_3[127:0])); 
     key_expansion k4(.key(k3_key[127:0]),.count(4'b0100),.key_out(key_4[127:0])); 
@@ -115,8 +115,8 @@ module aes_top(
     begin
         if(reset==1'b0)
         begin
-            ir_in <= 128'h0;
-            ir_key<= 128'h0;
+            data_in <= 128'h0;
+            key<= 128'h0;
             r1_in <= 128'h0;
             k1_key<= 128'h0;
             r2_in <= 128'h0;
@@ -142,8 +142,8 @@ module aes_top(
         end
         else
         begin
-            ir_in <=data_in;
-            ir_key<=key;
+            data_in <=data_in;
+            key<=key;
             r1_in <=out;
             k1_key<=key_1;
             r2_in <=r1_out;

@@ -41,7 +41,7 @@ module aes_top(
     key_expansion k3(.key(key_2[127:0]),.count(4'b0011),.key_out(key_3[127:0])); 
     key_expansion k4(.key(key_3[127:0]),.count(4'b0100),.key_out(key_4[127:0])); 
     key_expansion k5(.key(key_4[127:0]),.count(4'b0101),.key_out(key_5[127:0])); 
-    key_expansion k6(.key(key_5[127:0]),.count(4'b0110),.key_out_out(key_6[127:0])); 
+    key_expansion k6(.key(key_5[127:0]),.count(4'b0110),.key_out(key_6[127:0])); 
     key_expansion k7(.key(key_6[127:0]),.count(4'b0111),.key_out(key_7[127:0])); 
     key_expansion k8(.key(key_7[127:0]),.count(4'b1000),.key_out(key_8[127:0])); 
     key_expansion k9(.key(key_8[127:0]),.count(4'b1001),.key_out(key_9[127:0])); 

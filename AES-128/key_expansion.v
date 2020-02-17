@@ -6,7 +6,7 @@ module key_expansion(key, count, key_out);
   input [127:0] key;
   input [3:0] count;
   output [127:0] key_out;
-   wire [31:0] w0,w1,w2,w3,w_3;
+    wire [31:0] w0,w1,w2,w3,w_3, temp;
   //internal variables
   assign w0 = key[127:96];
   assign w1 = key[95:64];
@@ -15,11 +15,11 @@ module key_expansion(key, count, key_out);
     
   //calculating g(w3)
     assign w_3 = {w3[23:16], w3[15:8], w3[7:0], w3[31:24]};   //one byte left circular rotation
-    sub_byte s1(.in(w_3), .sb(w3));                               //substitute bytes using lookup table
-    assign key_out[127:96] = w0^w3^rcon(count);
-    assign key_out[95:64] = w1^w0^w3^rcon(count);
-    assign key_out[63:32] = w2^w1^w0^w3^rcon(count);
-    assign key_out[95:64] = w3^w2^w1^w0^w3^rcon(count);
+    sub_byte s1(.in(w_3), .sb(temp));                               //substitute bytes using lookup table
+    assign key_out[127:96] = w0^temp^rcon(count);
+    assign key_out[95:64] = w1^w0^temp^rcon(count);
+    assign key_out[63:32] = w2^w1^w0^temp^rcon(count);
+    assign key_out[95:64] = w3^w2^w1^w0^temp^rcon(count);
   
     
   //To calculate round constant based on the round we're in 

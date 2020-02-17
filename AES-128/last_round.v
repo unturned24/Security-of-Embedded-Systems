@@ -5,7 +5,7 @@ input [127:0]in;
 input [127:0]key_last;
 output [127:0]data_out;
 
-  wire [127:0] sb,sr_out,sr,mod_key,key_out;
+  wire [127:0] sb,sr_out,sr,mod_key, out;
   assign mod_key = {key_last[127:120],key_last[95:88],key_last[63:56],key_last[31:24],key_last[119:112],key_last[87:80],key_last[55:48],key_last[23:16],key_last[111:104],key_last[79:72],key_last[47:40],key_last[15:8],key_last[103:96],key_last[71:64],key_last[39:32],key_last[7:0]};
         
 //last round of operations doesn't involve mix_columns

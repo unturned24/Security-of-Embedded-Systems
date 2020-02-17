@@ -14,7 +14,7 @@ module aes_top(
     
     
     wire [127:0] out;
-    first_round FR(.out(out),.data(data_in),.key_in(key));
+    first_round FR(.data(data_in),.key_in(key),.out(out));
      
     
     wire [127:0]key_1;

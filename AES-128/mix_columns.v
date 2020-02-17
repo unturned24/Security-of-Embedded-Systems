@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
-module mix_columns(in,out);
+module mix_columns(clk,in,out);
 input [127:0] in;
 output [127:0] out;
-
+input clk;
 
 assign out[127:120]= mix (in[127:120],in[119:112],in[111:104],in[103:96]);
 assign out[119:112]= mix (in[119:112],in[111:104],in[103:96],in[127:120]);

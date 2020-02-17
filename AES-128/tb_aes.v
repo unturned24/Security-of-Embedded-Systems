@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "aes_encrypt.v"
+//`include "aes_encrypt.v"
 
 module tb_aes;
 	// Inputs

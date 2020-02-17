@@ -142,9 +142,9 @@ module aes_top(
         end
         else
         begin
-            ir_in <=plaintext;
-            ir_key<=userkey;
-            r1_in <=IR_out;
+            ir_in <=data_in;
+            ir_key<=key;
+            r1_in <=out;
             k1_key<=key_1;
             r2_in <=r1_out;
             k2_key<=key_2;

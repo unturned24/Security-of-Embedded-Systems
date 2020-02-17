@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 
-module last_round(clk,rc,rin,key_last,data_out);
-input clk;
+module last_round(rc,rin,key_last,data_out);
 input [3:0]rc;
 input [127:0]rin;
 input [127:0]key_last;

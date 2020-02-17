@@ -24,7 +24,7 @@ module tb_aes;
 		#1 clk = ~clk;
 	end
 	
-	aes_encrypt u1(.clk(clk),.data_in(data_in),.key(key),.data_out(data_out));
+	aes_encrypt u1(.data_in(data_in),.key(key),.data_out(data_out));
 	
       
 endmodule

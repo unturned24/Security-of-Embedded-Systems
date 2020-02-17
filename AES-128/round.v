@@ -14,10 +14,10 @@ output [127:0]rndout;
 
 wire [127:0] sb,sr,mc;
 //encrypts data for a given round taking round_count as input
-  key_expansion t0(clk,rc,key_in,key_out);
-  sub_byte t1(clk,data,sb);
-  shift_rows t2(clk,sb,sr);
-  mix_columns t3(clk, sr,mc);
+  key_expansion t0(rc,key_in,key_out);
+  sub_byte t1(data,sb);
+  shift_rows t2(sb,sr);
+  mix_columns t3(sr,mc);
 assign rndout= key_out^mc; //addroundkey()
 
 endmodule

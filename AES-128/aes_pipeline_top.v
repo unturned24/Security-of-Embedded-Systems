@@ -2,7 +2,10 @@
 `include "round.v"
 `include "first_round.v"
 `include "last_round.v"
-
+`include "key_expansion.v"
+`include "shift_rows.v"
+`include "mix_columns.v"
+`include "sub_byte.v"
 
 module aes_top(
     input [127:0] data_in,

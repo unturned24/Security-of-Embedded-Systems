@@ -1,6 +1,9 @@
 `timescale 1ns / 1ps
 `include "round.v"
 `include "key_expansion.v"
+`include "last_round.v"
+`include "first_round.v"
+
 module aes_top(
     input [127:0] data_in,
     input [127:0] key,

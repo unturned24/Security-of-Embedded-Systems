@@ -3,14 +3,14 @@
 
 module tb_aes;
 	// Inputs
-	reg clk;
+	//reg clk;
 	// Outputs
 	wire [7:0] data_out;
 	reg [127:0] data_in;
 	reg [127:0] key;
-	initial begin 
+	/*initial begin 
     	clk =0;
-	end
+	end */
 	initial begin
 		#5;
 		data_in = 128'h 3243f6a8885a308d313198a2e0370734;
@@ -20,9 +20,9 @@ module tb_aes;
 	end
 	
 	// Instantiate the Unit Under Test (UUT)
-	always begin
+	/*always begin
 		#1 clk = ~clk;
-	end
+	end*/
 	
 	aes_encrypt u1(.data_in(data_in),.key(key),.data_out(data_out));
 	

@@ -14,12 +14,16 @@ module key_expansion(key, count, key_out);
   assign w3 = key[31:0];
     
   //calculating g(w3)
-    assign w_3 = {w3[23:16], w3[15:8], w3[7:0], w3[31:24]};   //one byte left circular rotation
-    sub_byte s1(.in(w_3), .sb(temp));                               //substitute bytes using lookup table
-    assign key_out[127:96] = w0^temp^rcon(count);
-    assign key_out[95:64] = w1^w0^temp^rcon(count);
-    assign key_out[63:32] = w2^w1^w0^temp^rcon(count);
-    assign key_out[31:0] = w3^w2^w1^w0^temp^rcon(count);
+    assign w_3 = {w3[23:0], w3[31:24]};   //one byte left circular rotation
+    //substitute bytes using lookup table
+    sub_byte s0(.in(w_3[7:0]),.sb(temp[7:0]));
+    sub_byte s1(.in(w_3[15:8]),.sb(temp[15:8]));
+    sub_byte s2(.in(w_3[23:16]),.sb(temp[23:16]));
+    sub_byte s1(.in(w_3[31:24]), .sb(temp[31:24]));  
+    assign key_out[127:96] = key[127:96]^temp^rcon(count);
+    assign key_out[95:64] = key[95:64]^key_out[127:96];
+    assign key_out[63:32] = key[63:32]^key_out[95:64];
+    assign key_out[31:0] = key[31:0]^key_out[63:32];
   
     
   //To calculate round constant based on the round we're in 

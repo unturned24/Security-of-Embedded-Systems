@@ -45,13 +45,7 @@ initial begin
             $display ("Test passed");
            else     
             $display ("failed: %x should be 128'h69c4e0d86a7b0430d8cdb78070b4c55a",cryptokey); 
-
-           
-//           #40
-//           if(encrypted_text == 128'h69c4e0d86a7b0430d8cdb78070b4c55a)
-//               $display ("Test passed");
-//           else     
-//               $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",encrypted_text); 
+ 
              $stop;   
 end
 

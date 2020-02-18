@@ -1,29 +1,8 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 02/11/2020 06:24:27 PM
-// Design Name: 
-// Module Name: AES_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 `define HalfClockPeriod 60
 `define ClockPeriod `HalfClockPeriod * 2
 
-@@ -33,7 +15,7 @@ reg reset;
-//OUTPUT
 wire [127:0] cryptokey;
 
 aes_top_pipeline UUT(

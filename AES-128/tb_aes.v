@@ -42,7 +42,7 @@ initial begin
            key   = 128'h000102030405060708090a0b0c0d0e0f; //0f1571c947d9e8590cb7add6af7f6798 - 000102030405060708090a0b0c0d0e0f
            #(20*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-            $display ("Test passed");
+                       $display ("Test passed! data_in: %x, key: %x, cipher_text: %x",data_in,key,cryptokey);
            else     
             $display ("failed: %x should be 128'h69c4e0d86a7b0430d8cdb78070b4c55a",cryptokey); 
  

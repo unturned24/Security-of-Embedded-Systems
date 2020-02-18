@@ -6,7 +6,7 @@ input [127:0] in;
 output [127:0] out;
 
 //assigning bytes according to shifts in the rows
-assign         out[127:120] = in[95:88];  
+/* assign         out[127:120] = in[95:88];  
 assign         out[119:112] = in[55:48];
 assign         out[111:104] = in[15:8];
 assign         out[103:96] = in[103:96];
@@ -24,7 +24,10 @@ assign          out[39:32] = in[39:32];
 assign          out[31:24] = in[127:120];
 assign          out[23:16] = in[87:80];
 assign          out[15:8] = in[47:40];
-assign          out[7:0] = in[7:0]; 
-
+   assign          out[7:0] = in[7:0];  */
+assign out[127:96] = {in[127:120],in[87:80],in[47:40],in[7:0]};
+    assign out[95:64]  = {in[95:88], in[55:48], in[15:8], in[103:96]};
+    assign out[63:32]  = {in[63:56], in[23:16], in[111:104], in[71:64]};
+    assign out[31:0]   = {in[31:24], in[119:112], in[79:72], in[39:32]};
 
 endmodule

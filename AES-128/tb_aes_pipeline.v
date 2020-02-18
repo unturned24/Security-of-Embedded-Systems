@@ -44,7 +44,7 @@ initial begin
            key   = 128'h000102030405060708090a0b0c0d0e0f; //0f1571c947d9e8590cb7add6af7f6798 - 000102030405060708090a0b0c0d0e0f
            //cryptokey = 69c4e0d86a7b0430d8cdb78070b4c55a
            
-           #(1*`ClockPeriod);
+          /* #(1*`ClockPeriod);
            data_in = 128'h00112233445566778899aabbccddeeff ; //00112233445566778899aabbccddeeff -> h0123456789abcdeffedcba9876543210
            key   = 128'h000102030405060708090a0b0c0d0e0f ; //0f1571c947d9e8590cb7add6af7f6798 -> 000102030405060708090a0b0c0d0e0f
            //cryptokey = 69c4e0d86a7b0430d8cdb78070b4c55a
@@ -63,7 +63,7 @@ initial begin
            data_in = 128'h0123456789abcdeffedcba9876543210 ; //00112233445566778899aabbccddeeff -> h0123456789abcdeffedcba9876543210
            key   = 128'h0f1571c947d9e8590cb7add6af7f6798 ; //0f1571c947d9e8590cb7add6af7f6798 -> 000102030405060708090a0b0c0d0e0f
            //cryptokey = 69c4e0d86a7b0430d8cdb78070b4c55a
-           
+           */
           
                                                                                                            
            
@@ -71,8 +71,8 @@ initial begin
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
             $display ("Test1 passed");
            else     
-            $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
-           #(1*`ClockPeriod);
+            $display ("failed: %x should be 128'h69c4e0d86a7b0430d8cdb78070b4c55a",cryptokey); 
+          /* #(1*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
             $display ("Test2 passed");
            else     
@@ -94,7 +94,7 @@ initial begin
                        $display ("Test5 passed");
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
-           #(1*`ClockPeriod);                                 
+           #(1*`ClockPeriod);        */                          
            
                       
              $stop;   

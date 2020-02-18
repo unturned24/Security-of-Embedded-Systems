@@ -6,11 +6,8 @@ module key_expansion(key, count, key_out);
   input [127:0] key;
   input [3:0] count;
   output [127:0] key_out;
-    wire [31:0] w0,w1,w2,w3,w_3, temp;
+    wire [31:0] w3,w_3, temp;
   //internal variables
-  assign w0 = key[127:96];
-  assign w1 = key[95:64];
-  assign w2 = key[63:32];
   assign w3 = key[31:0];
     
   //calculating g(w3)

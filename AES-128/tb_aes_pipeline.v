@@ -10,7 +10,6 @@ reg clk;
 reg reset;
 wire [127:0] cryptokey;
 
-aes_top_pipeline UUT(
 aes_top UUT(
             .data_in(data_in),
             .key(key),

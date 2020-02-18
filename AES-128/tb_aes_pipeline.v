@@ -98,65 +98,65 @@ initial begin
            if(cryptokey == 128'hff0b844a0853bf7c6934ab4364148fb9) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
                        $display ("Test1 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
-            $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
+                       $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
            #(1*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-            $display ("Test2 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test2 passed! cipher_text : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey);           
            
            #(1*`ClockPeriod);
            if(cryptokey == 128'hff0b844a0853bf7c6934ab4364148fb9) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test3 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test3 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
            #(1*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test4 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test4 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey);
             
            #(1*`ClockPeriod);
            if(cryptokey == 128'hff0b844a0853bf7c6934ab4364148fb9) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test5 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test5 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
            #(1*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test6 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test6 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey);
             
            #(1*`ClockPeriod);
            if(cryptokey == 128'hff0b844a0853bf7c6934ab4364148fb9) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test7 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test7 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
            #(1*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test8 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test8 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey);
             
            #(1*`ClockPeriod);
            if(cryptokey == 128'hff0b844a0853bf7c6934ab4364148fb9) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test9 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test9 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
            #(1*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test10 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test10 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey);
             
            #(1*`ClockPeriod);
            if(cryptokey == 128'hff0b844a0853bf7c6934ab4364148fb9) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test11 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test11 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey); 
            #(1*`ClockPeriod);
            if(cryptokey == 128'h69c4e0d86a7b0430d8cdb78070b4c55a) //69c4e0d86a7b0430d8cdb78070b4c55a->ff0b844a0853bf7c6934ab4364148fb9
-                       $display ("Test12 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey");
+                       $display ("Test12 passed! data_in : %x , key : %x and cipher_key : %x", data_in, key, cryptokey);
            else     
             $display ("failed: %x should be 128'hff0b844a0853bf7c6934ab4364148fb9",cryptokey);                                                  
            

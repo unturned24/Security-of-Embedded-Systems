@@ -2,7 +2,12 @@
 
 `define HalfClockPeriod 60
 `define ClockPeriod `HalfClockPeriod * 2
-
+module tb_aes_pipeline;
+//INPUTS
+reg [127:0]data_in;
+reg [127:0]key;
+reg clk;
+reg reset;
 wire [127:0] cryptokey;
 
 aes_top_pipeline UUT(
